@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="pink">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Mahiiiiiiiiiiiiiii💗</title>
+    <!-- Google Fonts for modern pastel aesthetic & handwritten look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Theme CSS Variables - Enhanced Luxe Pink Theme */
+        :root[data-theme="pink"] {
+            --bg-color: #fff0f5;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --primary-pink: #ff6584;
+            --deep-pink: #d93863;
+            --soft-blush: #ffe0e9;
+            --cream: #fff5f8;
+            --text-main: #3d2c33;
+            --text-muted: #826873;
+            --border-color: #ffb3c6;
+            --shadow: 0 20px 45px -10px rgba(255, 101, 132, 0.22);
+            --shape-bg-1: #ffd1dc;
+            --shape-bg-2: #ffe4ec;
+            --letter-bg: radial-gradient(#ffb3c6 0.8px, transparent 0.8px);
+            --lightbox-bg: rgba(61, 44, 51, 0.88);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.9);
+        }
+
+        :root[data-theme="black"] {
+            --bg-color: #121212;
+            --card-bg: rgba(26, 26, 26, 0.85);
+            --primary-pink: #ff7597;
+            --deep-pink: #ff5c8a;
+            --soft-blush: #261c21;
+            --cream: #221c1f;
+            --text-main: #f0e6e9;
+            --text-muted: #b09fa5;
+            --border-color: #33222a;
+            --shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.6);
+            --shape-bg-1: #261c21;
+            --shape-bg-2: #1f161b;
+            --letter-bg: radial-gradient(#33222a 0.8px, transparent 0.8px);
+            --lightbox-bg: rgba(0, 0, 0, 0.9);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        :root[data-theme="white"] {
+            --bg-color: #ffffff;
+            --card-bg: rgba(250, 250, 250, 0.9);
+            --primary-pink: #e06d8c;
+            --deep-pink: #cc4d71;
+            --soft-blush: #f4f4f4;
+            --cream: #f9f9f9;
+            --text-main: #2b2b2b;
+            --text-muted: #666666;
+            --border-color: #e0e0e0;
+            --shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.1);
+            --shape-bg-1: #f0f0f0;
+            --shape-bg-2: #f7f7f7;
+            --letter-bg: radial-gradient(#e0e0e0 0.8px, transparent 0.8px);
+            --lightbox-bg: rgba(43, 43, 43, 0.85);
+            --glass-border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            background-image: radial-gradient(var(--primary-pink) 0.5px, transparent 0.5px);
+            background-size: 32px 32px;
+            background-opacity: 0.15;
+        }
+
+        /* Ambient glowing background floating shapes */
+        .bg-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-shape {
+            position: absolute;
+            background: var(--shape-bg-1);
+            border-radius: 50%;
+            opacity: 0.5;
+            filter: blur(40px);
+            animation: floatShape 18s infinite alternate ease-in-out;
+        }
+
+        .shape-1 { width: 380px; height: 380px; top: -100px; left: -100px; }
+        .shape-2 { width: 480px; height: 480px; bottom: -150px; right: -150px; background: var(--shape-bg-2); animation-delay: -6s; }
+        .shape-3 { width: 280px; height: 280px; top: 40%; right: 10%; animation-delay: -3s; }
+
+        @keyframes floatShape {
+            0% { transform: translateY(0) scale(1) rotate(0deg); }
+            100% { transform: translateY(40px) scale(1.12) rotate(15deg); }
+        }
+
+        /* Theme Switcher Floating Bar */
+        .theme-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: var(--glass-border);
+            padding: 6px 14px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .theme-switcher span {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .theme-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+        }
+
+        .theme-btn.active, .theme-btn:hover {
+            border-color: var(--deep-pink);
+            background: var(--soft-blush);
+            transform: scale(1.15);
+        }
+
+        /* App Container */
+        .app-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Screens */
+        .screen {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .screen.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Password Gate Screen */
+        .password-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: var(--glass-border);
+            border-radius: 36px;
+            padding: 55px 35px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            max-width: 460px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .password-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 8px;
+            background: linear-gradient(90deg, var(--primary-pink), var(--deep-pink));
+        }
+
+        .password-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
+            color: var(--deep-pink);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .password-subtitle {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .password-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .input-group {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 16px 50px 16px 20px;
+            font-size: 1.1rem;
+            font-family: inherit;
+            border: 2px solid var(--border-color);
+            background: var(--bg-color);
+            color: var(--text-main);
+            border-radius: 50px;
+            text-align: center;
+            outline: none;
+        }
+
+        .password-input:focus {
+            border-color: var(--deep-pink);
+            box-shadow: 0 0 15px rgba(217, 56, 99, 0.2);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toggle-password:hover {
+            opacity: 1;
+        }
+
+        .password-error {
+            color: #ff4d6d;
+            font-size: 0.88rem;
+            min-height: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .password-error.visible {
+            opacity: 1;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+
+        .shake {
+            animation: shake 0.4s ease-in-out;
+        }
+
+        /* Welcome Screen */
+        .welcome-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: var(--glass-border);
+            border-radius: 36px;
+            padding: 55px 35px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 8px;
+            background: linear-gradient(90deg, var(--primary-pink), var(--deep-pink));
+        }
+
+        .nickname-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: var(--deep-pink);
+            margin-bottom: 16px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            word-break: break-word;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-pink), var(--deep-pink));
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(217, 56, 99, 0.35);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: inherit;
+            width: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(217, 56, 99, 0.45);
+        }
+
+        .pulsing-heart {
+            display: inline-block;
+            animation: pulseBeat 1.4s infinite ease-in-out;
+        }
+
+        @keyframes pulseBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+        }
+
+        /* Main Content Experience Container */
+        .main-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            padding: 40px 0 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Birthday Intro Banner */
+        .intro-banner {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: var(--glass-border);
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+        }
+
+        .intro-banner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            color: var(--deep-pink);
+            margin-bottom: 16px;
+        }
+
+        .intro-banner p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Photo Gallery - Styled Framed Polaroid Style */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 28px;
+            width: 100%;
+        }
+
+        .polaroid {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 16px 16px 24px 16px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(217, 56, 99, 0.14);
+            border: 2px solid var(--border-color);
+            cursor: pointer;
+            position: relative;
+            transform: rotate(var(--rot, 0deg));
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .polaroid:nth-child(odd) { --rot: -2deg; }
+        .polaroid:nth-child(even) { --rot: 2deg; }
+
+        .polaroid:hover {
+            transform: translateY(-8px) rotate(0deg) scale(1.03);
+            box-shadow: 0 22px 45px rgba(255, 101, 132, 0.32);
+            z-index: 2;
+            border-color: var(--primary-pink);
+        }
+
+        .polaroid-img-wrap {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: var(--cream);
+            border-radius: 8px;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .polaroid:hover img {
+            transform: scale(1.07);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--soft-blush), var(--card-bg));
+            color: var(--deep-pink);
+            text-align: center;
+            padding: 15px;
+            font-size: 0.85rem;
+            gap: 8px;
+        }
+
+        .photo-placeholder svg {
+            width: 38px;
+            height: 38px;
+            opacity: 0.75;
+        }
+
+        .polaroid-caption {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 16px;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--lightbox-bg);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+
+        .lightbox.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-content {
+            background: var(--card-bg);
+            padding: 16px 16px 26px 16px;
+            border-radius: 16px;
+            max-width: 520px;
+            width: 100%;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            border: var(--glass-border);
+        }
+
+        .lightbox.open .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-img-wrap {
+            width: 100%;
+            height: 360px;
+            background: var(--cream);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .lightbox-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            background: var(--deep-pink);
+            color: white;
+            border: none;
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+            transition: transform 0.2s;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.12);
+        }
+
+        .lightbox-caption {
+            font-family: 'Caveat', cursive;
+            font-size: 1.7rem;
+            text-align: center;
+            margin-top: 16px;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        /* Heartfelt Letter Section */
+        .letter-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: var(--glass-border);
+            border-radius: 28px;
+            padding: 45px;
+            box-shadow: var(--shadow);
+            position: relative;
+            background-image: var(--letter-bg);
+            background-size: 26px 26px;
+        }
+
+        .letter-salutation {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--deep-pink);
+            margin-bottom: 22px;
+            font-weight: 600;
+        }
+
+        .letter-body {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        /* Interactive Surprise Section */
+        .surprise-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .interactive-box {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: var(--glass-border);
+            border-radius: 28px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 620px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .interactive-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        /* Envelope / Hidden Note & Passcode Interaction */
+        .envelope-container {
+            width: 100%;
+            min-height: 190px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: var(--soft-blush);
+            border-radius: 20px;
+            padding: 25px;
+            border: 2px dashed var(--primary-pink);
+            position: relative;
+            overflow: hidden;
+            transition: filter 0.2s;
+        }
+
+        .envelope-container:hover {
+            filter: brightness(0.96);
+        }
+
+        .envelope-icon {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .envelope-text {
+            font-weight: 700;
+            color: var(--deep-pink);
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* Note Passcode Gate Styles */
+        .note-auth-box {
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .note-auth-box.active {
+            display: flex;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .note-input-wrap {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .note-input {
+            width: 100%;
+            padding: 12px 45px 12px 18px;
+            font-size: 1.05rem;
+            border: 2px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-main);
+            border-radius: 50px;
+            text-align: center;
+            outline: none;
+        }
+
+        .note-input:focus {
+            border-color: var(--deep-pink);
+        }
+
+        .note-error {
+            color: #ff4d6d;
+            font-size: 0.82rem;
+            display: none;
+            font-weight: 600;
+        }
+
+        .note-error.visible {
+            display: block;
+        }
+
+        .hidden-message {
+            display: none;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            line-height: 1.7;
+            animation: fadeIn 0.5s ease forwards;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 14px;
+            border: var(--glass-border);
+            width: 100%;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .hidden-message.revealed {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        /* Voice Note Audio Player styling */
+        .voice-note-player {
+            width: 100%;
+            margin-top: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: var(--cream);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .voice-note-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--deep-pink);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        audio {
+            width: 100%;
+            height: 38px;
+        }
+
+        /* Final Wish Card */
+        .final-wish-card {
+            background: var(--soft-blush);
+            backdrop-filter: blur(16px);
+            border: var(--glass-border);
+            border-radius: 28px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            width: 100%;
+        }
+
+        .final-wish-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--deep-pink);
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        .final-wish-text {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 22px;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .final-wish-text.revealed {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Final Footer & Signature */
+        .final-footer {
+            text-align: center;
+            padding: 35px 20px 20px 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .footer-note {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            color: var(--text-muted);
+        }
+
+        .author-signature {
+            font-family: 'Caveat', cursive;
+            font-size: 2.3rem;
+            color: var(--deep-pink);
+            font-weight: 700;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .author-signature::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-pink), transparent);
+            border-radius: 2px;
+        }
+
+        .replay-container {
+            margin-top: 15px;
+        }
+
+        .btn-text {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-decoration: underline;
+            padding: 5px;
+            font-family: inherit;
+            font-weight: 600;
+        }
+
+        .btn-text:hover {
+            color: var(--deep-pink);
+        }
+
+        @media (max-width: 600px) {
+            .app-container { padding: 12px; }
+            .welcome-card, .password-card, .letter-card, .intro-banner { padding: 30px 20px; }
+            .nickname-title, .password-title { font-size: 1.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient glowing background shapes -->
+    <div class="bg-shapes">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <span>Theme</span>
+        <button class="theme-btn active" onclick="setTheme('pink')" title="Pink Theme">🌸</button>
+        <button class="theme-btn" onclick="setTheme('black')" title="Black Theme">🖤</button>
+        <button class="theme-btn" onclick="setTheme('white')" title="White Theme">🤍</button>
+    </div>
+
+    <div class="app-container">
+
+        <!-- SCREEN 0: PASSWORD GATE SCREEN -->
+        <div id="passwordScreen" class="screen active">
+            <div class="password-card" id="passwordCard">
+                <h1 class="password-title">Enter Secret Passcode 🔐</h1>
+                <p class="password-subtitle">ask ur creatorr i f u dont knowur bd datee</p>
+                
+                <div class="password-form">
+                    <div class="input-group">
+                        <input type="password" id="passwordInput" class="password-input" placeholder="DD-MM-YYYY" autocomplete="current-password">
+                        <button type="button" class="toggle-password" onclick="togglePasswordVisibility('passwordInput', this)" title="Show/Hide Password">👁️</button>
+                    </div>
+                    <div id="passwordError" class="password-error">Incorrect passcode, try again! 🤪🤪</div>
+                    <button class="btn-primary" id="unlockBtn">
+                        unlock ur surprise <span class="pulsing-heart">💗</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 1: WELCOME SCREEN -->
+        <div id="welcomeScreen" class="screen">
+            <div class="welcome-card">
+                <h1 class="nickname-title">Mahiiiiiiiiiiiiiii💗</h1>
+                <p class="welcome-subtitle">A little corner of the internet put together just for you. Sorry it took a minute, but good things take time!</p>
+                <button class="btn-primary" id="openSurpriseBtn">
+                    Open your little surprise <span class="pulsing-heart">💗</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 2: MAIN WEBSITE EXPERIENCE -->
+        <div id="mainScreen" class="screen">
+            <div class="main-content">
+                
+                <!-- Birthday Intro Banner -->
+                <section class="intro-banner">
+                    <h3>Happy Birthday! 🎉</h3>
+                    <p>sorry im a little late frrr 😭 i know this is just a small thing and maybe not much for u but i still wanted to make something for u. maybe one day ill make it up to u with something even better promiseee🥹💗</p>
+                </section>
+
+                <!-- Personal Photo Gallery (5 Mahi Photos with Frames) -->
+                <section>
+                    <div class="section-header">
+                        <h2>Some Moments & Memories</h2>
+                        <p>Tap any photo to take a closer look</p>
+                    </div>
+
+                    <div class="gallery-grid">
+                        <!-- Photo 1 -->
+                        <div class="polaroid" onclick="openLightbox('mahi.png', 'Mahiiii 💗')">
+                            <div class="polaroid-img-wrap">
+                                <img src="mahi.png" alt="Mahi photo 1" onerror="this.replaceWith(createPlaceholder('Add mahi.png'))">
+                            </div>
+                            <div class="polaroid-caption">Mahiiii 💗</div>
+                        </div>
+
+                        <!-- Photo 2 -->
+                        <div class="polaroid" onclick="openLightbox('mahi2.png', 'Always smiling ✨')">
+                            <div class="polaroid-img-wrap">
+                                <img src="mahi2.png" alt="Mahi photo 2" onerror="this.replaceWith(createPlaceholder('Add mahi2.png'))">
+                            </div>
+                            <div class="polaroid-caption">Always smiling ✨</div>
+                        </div>
+
+                        <!-- Photo 3 -->
+                        <div class="polaroid" onclick="openLightbox('mahi3.png', 'Vibes ✨')">
+                            <div class="polaroid-img-wrap">
+                                <img src="mahi3.png" alt="Mahi photo 3" onerror="this.replaceWith(createPlaceholder('Add mahi3.png'))">
+                            </div>
+                            <div class="polaroid-caption">Good vibes only</div>
+                        </div>
+
+                        <!-- Photo 4 -->
+                        <div class="polaroid" onclick="openLightbox('mahi4.png', 'Unmatched energy 💫')">
+                            <div class="polaroid-img-wrap">
+                                <img src="mahi4.png" alt="Mahi photo 4" onerror="this.replaceWith(createPlaceholder('Add mahi4.png'))">
+                            </div>
+                            <div class="polaroid-caption">Unmatched energy 💫</div>
+                        </div>
+
+                        <!-- Photo 5 -->
+                        <div class="polaroid" onclick="openLightbox('mahi5.png', 'Precious moments 🌟')">
+                            <div class="polaroid-img-wrap">
+                                <img src="mahi5.png" alt="Mahi photo 5" onerror="this.replaceWith(createPlaceholder('Add mahi5.png'))">
+                            </div>
+                            <div class="polaroid-caption">Precious moments 🌟</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Heartfelt Letter -->
+                <section class="letter-card">
+                    <div class="letter-salutation">Hey Mahiiii,</div>
+                    <div class="letter-body">
+                        <p>I am genuinely so glad I met you. Having you in my life means a lot, and you bring such great energy and happiness to everyone around you.</p>
+                        <p>I really appreciate the person you are—authentic, fun, and just super easy to talk to. Even though this birthday wish is a bit late, the appreciation behind it is completely real.</p>
+                        <p>I hope this next year brings you so much happiness, peace, great success, and unforgettable memories. You deserve all the best things coming your way!</p>
+                    </div>
+                </section>
+
+                <!-- Interactive Surprise Section (Hidden Note with Secret Message & Voice Note) -->
+                <div class="surprise-wrapper">
+                    <div class="interactive-box">
+                        <h3>A Hidden Note</h3>
+                        <div class="envelope-container" id="envelopeBox" onclick="triggerEnvelopeClick()">
+                            <div class="envelope-icon" id="envIcon">💌</div>
+                            <div class="envelope-text" id="envelopeLabel">Tap to open secret note</div>
+                            
+                            <!-- Sub-passcode input prompt inside envelope (No hint provided) -->
+                            <div class="note-auth-box" id="noteAuthBox" onclick="event.stopPropagation()">
+                                <div class="note-input-wrap">
+                                    <input type="password" id="notePassInput" class="note-input" placeholder="passcode please">
+                                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('notePassInput', this)" title="Show/Hide Passcode">👁️</button>
+                                </div>
+                                <div id="noteError" class="note-error">Wrong passcode, try again!</div>
+                            </div>
+
+                            <div class="hidden-message" id="hiddenMessage" onclick="event.stopPropagation()">
+                                <p>betam kelebe love u my friend betamm u re such a hoe but still love u so muchh betammm</p>
+                                
+                                <!-- Voice Note Player -->
+                                <div class="voice-note-player">
+                                    <div class="voice-note-label">🎙️ Voice note from Abel:</div>
+                                    <audio controls preload="metadata">
+                                        <source src="voice.mp3" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Wish Card -->
+                <div class="final-wish-card">
+                    <h3>One Last Thing...</h3>
+                    <p class="final-wish-text" id="finalWishText">May this year treat you amazingly well, bring you closer to your goals, and give you endless reasons to smile. You're truly one of a kind, Mahi! 💗</p>
+                    <button class="btn-primary" id="revealWishBtn" onclick="revealFinalWish()">
+                        Tap for your final birthday wish ✨
+                    </button>
+                </div>
+
+                <!-- Final Footer & Signature -->
+                <footer class="final-footer">
+                    <p class="footer-note">anywayyy happy birthdayyy mahiiii 😭💗</p>
+                    <div class="author-signature">html written by Abell,for MAHLETT GULLAT</div>
+                    <div class="replay-container">
+                        <button class="btn-text" onclick="resetExperience()">↺ Replay surprise</button>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Lightbox Component -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox">&times;</button>
+            <div class="lightbox-img-wrap">
+                <img id="lightboxImg" src="" alt="Enlarged photo">
+            </div>
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Switcher Logic
+        function setTheme(themeName) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('mahi_theme', themeName);
+            
+            const buttons = document.querySelectorAll('.theme-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            if (themeName === 'pink') buttons[0].classList.add('active');
+            if (themeName === 'black') buttons[1].classList.add('active');
+            if (themeName === 'white') buttons[2].classList.add('active');
+        }
+
+        (function() {
+            const savedTheme = localStorage.getItem('mahi_theme') || 'pink';
+            setTheme(savedTheme);
+        })();
+
+        // Toggle Password Visibility (Eye Icon)
+        function togglePasswordVisibility(inputId, btnEl) {
+            const input = document.getElementById(inputId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                btnEl.textContent = '🙈';
+            } else {
+                input.type = 'password';
+                btnEl.textContent = '👁️';
+            }
+        }
+
+        // Password Authentication Logic
+        const CORRECT_PASSWORD = "13102009";
+
+        function handlePasswordSubmit() {
+            const inputVal = document.getElementById('passwordInput').value.trim();
+            const errorEl = document.getElementById('passwordError');
+            const cardEl = document.getElementById('passwordCard');
+            const passwordScreen = document.getElementById('passwordScreen');
+            const welcomeScreen = document.getElementById('welcomeScreen');
+
+            if (inputVal === CORRECT_PASSWORD) {
+                errorEl.classList.remove('visible');
+                passwordScreen.style.opacity = '0';
+                passwordScreen.style.transition = 'opacity 0.4s ease';
+                
+                setTimeout(() => {
+                    passwordScreen.classList.remove('active');
+                    welcomeScreen.classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 400);
+            } else {
+                errorEl.classList.add('visible');
+                cardEl.classList.add('shake');
+                setTimeout(() => {
+                    cardEl.classList.remove('shake');
+                }, 400);
+            }
+        }
+
+        document.getElementById('unlockBtn').addEventListener('click', handlePasswordSubmit);
+        document.getElementById('passwordInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') handlePasswordSubmit();
+        });
+
+        // Welcome to Main Screen transition
+        document.getElementById('openSurpriseBtn').addEventListener('click', function() {
+            const welcomeScreen = document.getElementById('welcomeScreen');
+            const mainScreen = document.getElementById('mainScreen');
+            
+            welcomeScreen.style.opacity = '0';
+            welcomeScreen.style.transition = 'opacity 0.4s ease';
+            
+            setTimeout(() => {
+                welcomeScreen.classList.remove('active');
+                mainScreen.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 400);
+        });
+
+        // Lightbox Functions
+        function openLightbox(imgSrc, captionText) {
+            const lightbox = document.getElementById('lightbox');
+            document.getElementById('lightboxImg').src = imgSrc;
+            document.getElementById('lightboxCaption').textContent = captionText;
+            lightbox.classList.add('open');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+        }
+
+        function createPlaceholder(text) {
+            const div = document.createElement('div');
+            div.className = 'photo-placeholder';
+            div.innerHTML = `
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                <span>${text}</span>
+            `;
+            return div;
+        }
+
+        // Envelope & Secondary Passcode (736) Logic
+        let noteUnlocked = false;
+
+        function triggerEnvelopeClick() {
+            if (noteUnlocked) return;
+            const authBox = document.getElementById('noteAuthBox');
+            const label = document.getElementById('envelopeLabel');
+            
+            authBox.classList.add('active');
+            label.textContent = "Enter passcode please:";
+            document.getElementById('notePassInput').focus();
+        }
+
+        const NOTE_PASSWORD = "736";
+
+        function handleNotePassword() {
+            const val = document.getElementById('notePassInput').value.trim();
+            const err = document.getElementById('noteError');
+            const authBox = document.getElementById('noteAuthBox');
+            const msg = document.getElementById('hiddenMessage');
+            const label = document.getElementById('envelopeLabel');
+            const icon = document.getElementById('envIcon');
+
+            if (val === NOTE_PASSWORD) {
+                noteUnlocked = true;
+                err.classList.remove('visible');
+                authBox.classList.remove('active');
+                icon.textContent = "💖";
+                label.textContent = "Secret message & voice note unlocked!";
+                msg.classList.add('revealed');
+            } else {
+                err.classList.add('visible');
+            }
+        }
+
+        document.getElementById('notePassInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                handleNotePassword();
+            }
+        });
+
+        // Reveal Final Birthday Wish
+        function revealFinalWish() {
+            document.getElementById('finalWishText').classList.add('revealed');
+            document.getElementById('revealWishBtn').style.display = 'none';
+        }
+
+        // Reset Experience
+        function resetExperience() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            noteUnlocked = false;
+            document.getElementById('hiddenMessage').classList.remove('revealed');
+            document.getElementById('noteAuthBox').classList.remove('active');
+            document.getElementById('envelopeLabel').textContent = "Tap to open secret note";
+            document.getElementById('envIcon').textContent = "💌";
+            document.getElementById('notePassInput').value = "";
+            document.getElementById('notePassInput').type = 'password';
+            document.getElementById('finalWishText').classList.remove('revealed');
+            document.getElementById('revealWishBtn').style.display = 'inline-flex';
+            document.getElementById('passwordInput').value = '';
+            document.getElementById('passwordInput').type = 'password';
+            
+            setTimeout(() => {
+                document.getElementById('mainScreen').classList.remove('active');
+                const passwordScreen = document.getElementById('passwordScreen');
+                passwordScreen.style.opacity = '1';
+                passwordScreen.classList.add('active');
+            }, 300);
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
