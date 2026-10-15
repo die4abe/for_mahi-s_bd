@@ -884,6 +884,100 @@
             .welcome-card, .password-card, .letter-card, .intro-banner { padding: 30px 20px; }
             .nickname-title, .password-title { font-size: 1.9rem; }
         }
+    
+        /* ============ PRO POLISH LAYER ============ */
+        :root { --ease-out: cubic-bezier(.16,1,.3,1); --ease-spring: cubic-bezier(.34,1.56,.64,1);
+            --grad: linear-gradient(135deg, var(--primary-pink) 0%, var(--deep-pink) 55%, #ff9a8b 100%); }
+        * { transition: background-color .4s var(--ease-out), border-color .4s var(--ease-out), color .4s var(--ease-out); }
+        ::selection { background: var(--primary-pink); color: #fff; }
+        html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+        ::-webkit-scrollbar { width: 10px; } ::-webkit-scrollbar-track { background: var(--bg-color); }
+        ::-webkit-scrollbar-thumb { background: var(--grad); border-radius: 10px; border: 2px solid var(--bg-color); }
+
+        body { background-image:
+            radial-gradient(1200px 600px at 10% -10%, color-mix(in srgb, var(--primary-pink) 18%, transparent), transparent 60%),
+            radial-gradient(900px 500px at 110% 110%, color-mix(in srgb, var(--deep-pink) 14%, transparent), transparent 60%),
+            radial-gradient(color-mix(in srgb, var(--primary-pink) 35%, transparent) 0.6px, transparent 0.6px);
+            background-size: auto, auto, 28px 28px; background-attachment: fixed; }
+        body::after { content:''; position: fixed; inset: 0; pointer-events: none; z-index: 2; opacity: .05; mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+        .floating-shape { filter: blur(70px); opacity: .65; mix-blend-mode: multiply;
+            background: radial-gradient(circle at 30% 30%, var(--primary-pink), var(--shape-bg-1) 70%); animation-duration: 22s; }
+        [data-theme="black"] .floating-shape { mix-blend-mode: screen; opacity: .22; }
+        .shape-2 { background: radial-gradient(circle at 60% 40%, var(--deep-pink), var(--shape-bg-2) 70%); }
+
+        /* Glass cards */
+        .password-card, .welcome-card, .letter-card, .intro-banner, .interactive-box, .final-wish-card, .theme-switcher {
+            backdrop-filter: blur(22px) saturate(160%); -webkit-backdrop-filter: blur(22px) saturate(160%);
+            box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.6), 0 1px 2px rgba(0,0,0,.04); }
+        [data-theme="black"] .password-card, [data-theme="black"] .welcome-card, [data-theme="black"] .letter-card,
+        [data-theme="black"] .intro-banner, [data-theme="black"] .interactive-box, [data-theme="black"] .final-wish-card {
+            box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.06); }
+        .password-card, .welcome-card { animation: cardIn .9s var(--ease-out) both; }
+        @keyframes cardIn { from { opacity: 0; transform: translateY(30px) scale(.96); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+        .password-card::before, .welcome-card::before { height: 5px; background: var(--grad); background-size: 200% 100%; animation: sheen 4s linear infinite; }
+        @keyframes sheen { to { background-position: 200% 0; } }
+        .password-card::after, .welcome-card::after { content:''; position:absolute; inset:-1px; border-radius: inherit; padding: 1px; pointer-events:none;
+            background: conic-gradient(from var(--a, 0deg), transparent 0 70%, var(--primary-pink), transparent);
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+            animation: spinBorder 6s linear infinite; }
+        @property --a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+        @keyframes spinBorder { to { --a: 360deg; } }
+
+        /* Gradient headings */
+        .password-title, .nickname-title, .section-header h2 {
+            background: var(--grad); background-size: 200% auto; -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent; animation: sheen 6s linear infinite; letter-spacing: -.02em; }
+        .nickname-title { filter: drop-shadow(0 6px 18px color-mix(in srgb, var(--primary-pink) 35%, transparent)); }
+
+        /* Buttons */
+        .btn-primary { position: relative; overflow: hidden; isolation: isolate; background: var(--grad) !important; background-size: 200% auto !important;
+            box-shadow: 0 10px 30px -8px color-mix(in srgb, var(--deep-pink) 60%, transparent), inset 0 1px 0 rgba(255,255,255,.35);
+            transition: transform .35s var(--ease-spring), box-shadow .35s var(--ease-out), background-position .6s var(--ease-out) !important; }
+        .btn-primary::after { content:''; position:absolute; top:0; left:-120%; width:60%; height:100%; z-index:-1;
+            background: linear-gradient(110deg, transparent, rgba(255,255,255,.45), transparent); transform: skewX(-20deg); transition: left .8s var(--ease-out); }
+        .btn-primary:hover { transform: translateY(-3px) scale(1.03); background-position: 100% 0 !important;
+            box-shadow: 0 18px 40px -10px color-mix(in srgb, var(--deep-pink) 70%, transparent), inset 0 1px 0 rgba(255,255,255,.4); }
+        .btn-primary:hover::after { left: 140%; }
+        .btn-primary:active { transform: translateY(0) scale(.97); }
+        button:focus-visible, input:focus-visible { outline: 2px solid var(--primary-pink); outline-offset: 3px; }
+
+        /* Inputs */
+        .password-input, .note-input { transition: border-color .3s, box-shadow .3s var(--ease-out), transform .3s var(--ease-spring); }
+        .password-input:focus, .note-input:focus { transform: translateY(-1px);
+            box-shadow: 0 0 0 5px color-mix(in srgb, var(--primary-pink) 18%, transparent), 0 10px 25px -10px color-mix(in srgb, var(--deep-pink) 40%, transparent); }
+        .theme-btn { transition: transform .35s var(--ease-spring), background .3s, border-color .3s; }
+        .theme-btn.active { box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-pink) 25%, transparent); }
+
+        /* Polaroids */
+        .polaroid { transition: transform .6s var(--ease-spring), box-shadow .5s var(--ease-out) !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 12px 30px -12px rgba(0,0,0,.18); }
+        .polaroid:hover { transform: rotate(0deg) translateY(-10px) scale(1.04) !important; z-index: 3;
+            box-shadow: 0 30px 60px -15px color-mix(in srgb, var(--deep-pink) 45%, transparent); }
+        .polaroid-img-wrap { position: relative; overflow: hidden; }
+        .polaroid-img-wrap::after { content:''; position:absolute; inset:0; pointer-events:none;
+            background: linear-gradient(135deg, rgba(255,255,255,.35), transparent 40%); opacity: 0; transition: opacity .5s; }
+        .polaroid:hover .polaroid-img-wrap::after { opacity: 1; }
+        .polaroid img { transition: transform 1.2s var(--ease-out), filter .6s !important; }
+        .polaroid:hover img { transform: scale(1.08); filter: saturate(1.15); }
+
+        /* Envelope & misc */
+        .envelope-container { transition: transform .5s var(--ease-spring), box-shadow .4s !important; }
+        .envelope-container:hover { transform: translateY(-6px) !important; }
+        .envelope-icon { animation: floaty 3s ease-in-out infinite; display: inline-block; filter: drop-shadow(0 10px 15px color-mix(in srgb, var(--deep-pink) 40%, transparent)); }
+        @keyframes floaty { 50% { transform: translateY(-8px) rotate(-4deg); } }
+        .lightbox { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+        .lightbox-content { transition: transform .5s var(--ease-spring), opacity .4s !important; }
+        .lightbox-close { transition: transform .4s var(--ease-spring), background .3s !important; }
+        .lightbox-close:hover { transform: rotate(90deg) scale(1.1); }
+        .voice-note-player { border-radius: 18px; transition: transform .3s var(--ease-out); }
+        .voice-note-player:hover { transform: translateX(4px); }
+        audio { border-radius: 50px; }
+        .letter-card { background-image: var(--letter-bg), linear-gradient(var(--card-bg), var(--card-bg)); background-size: 18px 18px, auto; }
+        .author-signature { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
     </style>
 </head>
 <body>
@@ -1005,7 +1099,7 @@
                     </div>
                 </section>
 
-                <!-- Interactive Surprise Section (Hidden Note with Secret Message & Voice Note) -->
+                <!-- Interactive Surprise Section (Hidden Note with Secret Message & 3 Voice Notes) -->
                 <div class="surprise-wrapper">
                     <div class="interactive-box">
                         <h3>A Hidden Note</h3>
@@ -1025,11 +1119,29 @@
                             <div class="hidden-message" id="hiddenMessage" onclick="event.stopPropagation()">
                                 <p>betam kelebe love u my friend betamm u re such a hoe but still love u so muchh betammm</p>
                                 
-                                <!-- Voice Note Player -->
+                                <!-- Voice Note 1 (Mine) -->
                                 <div class="voice-note-player">
-                                    <div class="voice-note-label">🎙️ Voice note from Abel:</div>
+                                    <div class="voice-note-label">🎙️ Voice note 1 (Mine):</div>
                                     <audio controls preload="metadata">
                                         <source src="voice.mp3" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+
+                                <!-- Voice Note 2 (Her response) -->
+                                <div class="voice-note-player">
+                                    <div class="voice-note-label">🎙️ Voice note 2 (Her response 👇):</div>
+                                    <audio controls preload="metadata">
+                                        <source src="voice2.mp3" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+
+                                <!-- Voice Note 3 (Her response) -->
+                                <div class="voice-note-player">
+                                    <div class="voice-note-label">🎙️ Voice note 3 (Her response 👇):</div>
+                                    <audio controls preload="metadata">
+                                        <source src="voice3.mp3" type="audio/mpeg">
                                         Your browser does not support the audio element.
                                     </audio>
                                 </div>
@@ -1050,7 +1162,7 @@
                 <!-- Final Footer & Signature -->
                 <footer class="final-footer">
                     <p class="footer-note">anywayyy happy birthdayyy mahiiii 😭💗</p>
-                    <div class="author-signature">html written by Abell,for MAHLETT GULLAT</div>
+                    <div class="author-signature">html written by Abel, for my Mahiiii 💗</div>
                     <div class="replay-container">
                         <button class="btn-text" onclick="resetExperience()">↺ Replay surprise</button>
                     </div>
@@ -1202,7 +1314,7 @@
                 err.classList.remove('visible');
                 authBox.classList.remove('active');
                 icon.textContent = "💖";
-                label.textContent = "Secret message & voice note unlocked!";
+                label.textContent = "Secret message & voice notes unlocked!";
                 msg.classList.add('revealed');
             } else {
                 err.classList.add('visible');
